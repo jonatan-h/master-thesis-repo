@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+Car.py
+documents/
+reports/
+single_file_test.py
+output/
+**/__pycache__/
+DBStoreTest.py
