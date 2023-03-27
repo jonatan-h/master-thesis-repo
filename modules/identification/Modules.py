@@ -24,7 +24,7 @@ def is_pdf3(raw_text):
 
 
 def is_pdf4(raw_text):
-    return raw_text[0].startswith("ADEngineering")
+    return raw_text[0].startswith("REDACTED")
 
 
 def is_pdf5(raw_text):
