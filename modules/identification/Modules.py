@@ -20,7 +20,7 @@ def is_pdf2(raw_text):
 
 
 def is_pdf3(raw_text):
-    return re.search(r"Certification Instittute 2", raw_text[0])
+    return re.search(r"Certification Institute 2", raw_text[0])
 
 
 def is_pdf4(raw_text):
