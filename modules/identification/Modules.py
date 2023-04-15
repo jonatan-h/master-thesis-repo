@@ -16,19 +16,19 @@ def is_pdf1(raw_text):
 
 
 def is_pdf2(raw_text):
-    return re.search(r"Intertek Testing Services Shenzhen Ltd\.", raw_text[0])
+    return re.search(r"Certification Institute 1", raw_text[0])
 
 
 def is_pdf3(raw_text):
-    return re.search(r"SGS", raw_text[0])
+    return re.search(r"Certification Institute 2", raw_text[0])
 
 
 def is_pdf4(raw_text):
-    return raw_text[0].startswith("ADEngineering")
+    return raw_text[0].startswith("Certification Institute 3")
 
 
 def is_pdf5(raw_text):
-    return re.search("SAI Global", raw_text[0])
+    return re.search("Certification Institute 4", raw_text[0])
 
 
 def get_active_sheet(workbook):
