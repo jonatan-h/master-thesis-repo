@@ -8,3 +8,4 @@ single_file_test.py
 output/
 **/__pycache__/
 DBStoreTest.py
+Dictionaries.py
