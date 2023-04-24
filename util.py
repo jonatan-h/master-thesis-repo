@@ -1,6 +1,7 @@
 import re
 
 import Dictionaries
+from Dictionaries import models
 
 
 def calculate_safety_factor(peak, criteria):
@@ -67,21 +68,39 @@ def translate_impact_location(impact_location, model, stage_of_testing, certific
         return Dictionaries.crown
 
     if stage_of_testing == "Development":
-        if re.search(r"(Coron|Kortal|Myelin|Fornix|Orbic|Skull X SPIN|POCito Omne)", model):
+        if re.search(r"({}|{}|{}|{}|{}|{}|{})".format(
+            models[1],
+            models[5],
+            models[6],
+            models[14],
+            models[18],
+            models[19],
+            models[20],
+        ), model):
             match = re.search(r"\d+$", impact_location)
             if match:
                 impact_location = match[0]
-        elif re.search("(Corpora|Crane MIPS|Ventral|Artic|Auric|Meninx|Obex|Skull Dura| Skull Dura)", model):
+        elif re.search("({}|{}|{}|{}|{}|{}|{}|{}| {})".format(
+            models[2],
+            models[4],
+            models[11],
+            models[12],
+            models[13],
+            models[15],
+            models[16],
+            models[21],
+            models[21],
+        ), model):
             # in case of hyphens being used, key will be whatever is after the hyphen
             match = re.search(r"[\w\s]+$", impact_location)
             if match:
                 impact_location = match[0]
-        elif re.search("^Omne", model):
+        elif re.search("^{}".format(models[8]), model):
             match = re.search(r"\w+$", impact_location)
             if match:
                 impact_location = match[0]
-            model = "Omne"
-        elif re.search("Axion", model):
+            model = models[8]
+        elif re.search(model[0], model):
             match = re.search(r"\d+", impact_location)
             if match:
                 impact_location = match[0]
@@ -99,7 +118,7 @@ def translate_impact_location(impact_location, model, stage_of_testing, certific
                 return "N/A"
             return loc
 
-        elif re.search("Otocon", model):
+        elif re.search("{}".format(models[9]), model):
             match = re.search(r"\d+", impact_location)
             if match:
                 impact_location = match[0]
@@ -123,7 +142,7 @@ def translate_impact_location(impact_location, model, stage_of_testing, certific
                 return "N/A"
             return loc
 
-        elif re.search("(Tectal|Octal)",  model):
+        elif re.search("({}|{})".format(models[7], models[10]),  model):
             match = re.search(r"\d+$", impact_location)
             if match:
                 impact_location = match[0]
@@ -159,9 +178,29 @@ def translate_impact_location(impact_location, model, stage_of_testing, certific
 
 
 def get_helmet_type(model):
-    if re.search(r"(Axion|Coron|Corpora|Crane|Kortal|Myelin|Octal|Omne|Otocon|Tectal|Ventral)", model):
+    if re.search(r"({}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{})".format(
+        models[0],
+        models[1],
+        models[2],
+        models[3],
+        models[5],
+        models[6],
+        models[7],
+        models[8],
+        models[9],
+        models[10],
+        models[11],
+        models[18]
+    ), model):
         return "CYCLING"
-    elif re.search(r"(Artic|Auric|Fornix|Meninx|Obex|Skull)", model):
+    elif re.search(r"({}|{}|{}|{}|{}|{})".format(
+        models[12],
+        models[13],
+        models[14],
+        models[15],
+        models[16],
+        models[17],
+    ), model):
         return "SNOW"
     else:
         return "N/A"

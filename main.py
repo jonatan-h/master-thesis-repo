@@ -17,18 +17,6 @@ root_folder = './reports/Helmet_Data/Reports'
 
 if __name__ == '__main__':
 
-    # path = "./documents/excel1.xlsx"
-    # path = "./documents/excel2.xls"
-    # path = "./documents/pdf1.pdf"
-    # pdfminer_test = "./documents/pdf2.pdf"
-    # pdfminer_test = "./documents/pdf4.pdf"
-    # text = extract_text(pdfminer_test)
-    # tables = extract_table_data(pdfminer_test)
-    # path = "./documents/pdf4.pdf"
-    # path = "./reports/Helmet_Data/Reports/01_Development/01_CYCLING/Axion/POC AXION RACE MIPS AXION  S inhouse test record20210611.xls"
-    # path = "./reports/Helmet_Data/Reports/01_Development/01_CYCLING/Axion MIPS/Test summary of Axion race Mips 210202.xls"
-    # path = "./reports/Helmet_Data/Reports/01_Development/01_CYCLING/Myelin/POC-5 -M(EN1078)(01 COLD) -POC210521.pdf"
-
     counter = 1
 
     connection = DBConnector.create_connection("localhost", "root", "_YfN_[U6Tm4[_#JC")
