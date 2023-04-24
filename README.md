@@ -6,3 +6,4 @@
 2. Get access to Dictionary (restricted access)
 3. Specify path to reports directory
 4. (optional) Set up database
+5. Specify cache location(s)
